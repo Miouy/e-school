@@ -1,0 +1,1 @@
+INSERT INTO students(firstName, lastName, birthDate, email, password) VALUES ('Zhalgas','Sarsen','11.01.2001','sarsenzhalgas@gmail.com','123password');
