@@ -1,0 +1,31 @@
+table{
+  width: 100%;
+}
+
+.table{
+  margin-top: 15px;
+
+  td{
+    border-top: rgba(26,177,136,0.5) 1.5px solid;
+
+    .delete-btn{
+      background-color: rgba(241, 18, 18, 0.8);
+    }
+  }
+}
+
+.add-student-btn{
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pagin{
+  background-color: #45D09E;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.col-bag{
+  color: black;
+}

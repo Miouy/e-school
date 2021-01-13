@@ -1,0 +1,60 @@
+<div class="dialog">
+  <h2 mat-dialog-title>Add Student</h2>
+  <form (ngSubmit)="onSubmit()" #studentAddForm="ngForm">
+    <mat-dialog-content class="mat-typography">
+      <div>
+        <mat-form-field class="example-full-width w-100" style="margin: 0">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="first name" required
+                 [(ngModel)]="student.firstName" name="firstName" id="firstName">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="example-full-width w-100">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="last name" required
+                 [(ngModel)]="student.lastName" name="lastName">
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" required
+                 [(ngModel)]="student.birthDate" name="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required
+                 [(ngModel)]="student.email" name="email">
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="fill" class="w-100">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" required
+                 [(ngModel)]="student.password" name="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button [disabled]="!studentAddForm.form.valid" type="submit" mat-button [mat-dialog-close]="true"
+              cdkFocusInitial>Add
+      </button>
+    </mat-dialog-actions>
+  </form>
+</div>
+

@@ -1,0 +1,38 @@
+.bg-green{
+  color: white;
+  background-color: #1ab188;
+}
+
+.container{
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.main-nav{
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+
+    .logo-title{
+      font-size: 20px;
+    }
+
+    a{
+      font-size: 17px;
+    }
+
+    .logout{
+      background: #ff9905;
+    }
+  }
+}
+
+.main{
+  margin-top: 15px;
+}
+
+.spacer{
+  flex: 1 1 auto;
+}
