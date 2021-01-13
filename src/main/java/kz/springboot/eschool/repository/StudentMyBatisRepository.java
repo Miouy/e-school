@@ -20,7 +20,7 @@ public interface StudentMyBatisRepository {
     public Student findById(Long id);
 
     @Delete("DELETE FROM students WHERE id = #{id}")
-    public int deleteById(long id);
+    public int deleteById(Long id);
 
     @Insert("INSERT INTO students(firstName, lastName, birthDate, email, password) " +
             " VALUES (#{firstName}, #{lastName}, #{birthDate}, #{email}, #{password})")
