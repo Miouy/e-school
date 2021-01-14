@@ -11,7 +11,7 @@ E-School is a project on spring and angular for controlling students.
 
 ### 1.1. Ensure you have this installed before use:
 
-- Java 11
+- Java 8
 - Maven 3.6.0
 - Node
 - npm
@@ -69,10 +69,15 @@ git clone https://github.com/Miouy/e-school.git
 This will get a copy of the project installed locally. To install all of its dependencies and start each app, follow the instructions below.
 
 ```bash
-cd e-school/src/main/angular/eSchool  # Navigate to angular project
-npm install             # Install javascript package requirements
-ng serve --open         # Run the Angular Frontend   
-mvn spring-boot:run     # Build and run Spring Boot Backend
+first terminal:
+cd e-school                             # Navigate to spring project
+mvn spring-boot:run                     # Build and run Spring Boot Backend
+-----
+second terminal:
+cd e-school/src/main/angular/eSchool    # Navigate to angular project
+npm install                             # Install javascript package requirements
+ng serve --open                         # Run the Angular Frontend   
+
 ```
 ## 3. About E-School
 
