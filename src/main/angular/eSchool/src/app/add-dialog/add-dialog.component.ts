@@ -3,6 +3,8 @@ import {FormControl, Validators} from '@angular/forms';
 import {StudentService} from '../service/student.service';
 import {Student} from '../student';
 import {Router} from '@angular/router';
+import {formatDate} from '@angular/common';
+
 
 @Component({
   selector: 'app-add-dialog',
@@ -12,6 +14,8 @@ import {Router} from '@angular/router';
 export class AddDialogComponent implements OnInit {
 
   student: Student = new Student();
+
+  ddd!:Date;
 
   hide = true;
 
@@ -35,6 +39,7 @@ export class AddDialogComponent implements OnInit {
   }
 
   addStudent() {
+    this.student.birthDate=this.ddd.getDate()+"/"+(this.ddd.getUTCMonth()+1)+"/"+this.ddd.getUTCFullYear();
     this.studentService.addStudent(this.student).subscribe(data => {
         console.log(data);
         this.goToStudentList();
@@ -49,7 +54,6 @@ export class AddDialogComponent implements OnInit {
   onSubmit() {
     console.log(this.student);
     this.addStudent();
-    this.goToStudentList();
   }
 
 }

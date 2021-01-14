@@ -4,24 +4,26 @@
 
     <div id="login">
       <h1>Welcome Back</h1>
-      <form>
+      <form (ngSubmit)="login()" #loginForm="ngForm">
         <div class="field-wrap">
           <label>
             Username<span class="req">*</span>
           </label>
-          <input type="text" name="loginId" required autocomplete="off"/>
-          <!--          <span class="text-danger" v-if="errors.student_id"></span>-->
+          <input type="text" name="loginId" id="loginId" [(ngModel)]="loginData.username" #username="ngModel" required
+                 placeholder="username" autocomplete="off"/>
+          <span class="text-danger" [hidden]="username.valid || username.untouched">Username is required</span>
         </div>
 
         <div class="field-wrap">
           <label>
             Password<span class="req">*</span>
           </label>
-          <input type="password" v-model="form.password" name="password" required autocomplete="off"/>
-          <!--          <span class="text-danger" v-if="errors.password"></span>-->
+          <input type="password" [(ngModel)]="loginData.password" name="password" id="password" placeholder="password"
+                 required #password="ngModel" autocomplete="off"/>
+          <span class="text-danger" [hidden]="password.valid || password.untouched">Password is required</span>
         </div>
 
-        <button class="button button-block" type="submit">Log In</button>
+        <button [disabled]="!loginForm.form.valid" [ngClass]="{'button-disabled':!loginForm.form.valid}" class="button button-block" type="submit">Log In</button>
 
       </form>
     </div>

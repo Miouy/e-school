@@ -8,20 +8,25 @@ import {Router} from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = {
+  loginData = {
     username:'',
-    password:''
+    password:'',
   };
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    sessionStorage.setItem('authenticated','');
+    if(sessionStorage.getItem('authenticated')==null){
+      sessionStorage.setItem('authenticated','');
+    }
+    if(sessionStorage.getItem('authenticated')!=''){
+      this.router.navigate(['']);
+    }
   }
 
   login(){
-    if(this.loginForm.username == 'username' && this.loginForm.password == 'password'){
-      sessionStorage.setItem('authenticated',this.loginForm.username);
+    if(this.loginData.username == 'username' && this.loginData.password == 'password'){
+      sessionStorage.setItem('authenticated',this.loginData.username);
       this.router.navigate(['']);
     }else{
       alert("Invalid username or password!");

@@ -11,8 +11,7 @@ import java.util.List;
 
 @Mapper
 @Repository
-public interface StudentMyBatisRepository {
-
+public interface StudentTestRepository {
     @Select("SELECT * FROM students")
     public List<Student> findAll();
 
@@ -25,5 +24,8 @@ public interface StudentMyBatisRepository {
     @Insert("INSERT INTO students(firstName, lastName, birthDate, email, password) " +
             " VALUES (#{firstName}, #{lastName}, #{birthDate}, #{email}, #{password})")
     public int insert(Student student);
+
+    @Delete("TRUNCATE TABLE #{name}")
+    public void truncateTable(String name);
 
 }

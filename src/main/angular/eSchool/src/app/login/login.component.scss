@@ -89,4 +89,23 @@ $main_dark:darken($main_green,5%);
       background:$main_dark;
     }
   }
+
+  .button-disabled{
+    border:0;
+    outline:none;
+    border-radius:0;
+    padding:15px 0;
+    font-size:2rem;
+    font-weight:600;
+    width: 100%;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    background:gray;
+    color:#ffffff;
+    transition:all .5s ease;
+    -webkit-appearance: none;
+    &:hover, &:focus {
+      background:darkgray;
+    }
+  }
 }
